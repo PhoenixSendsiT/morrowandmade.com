@@ -22,6 +22,14 @@
     var btn = form.querySelector('button[type=submit]');
     var input = form.querySelector('.get-input');
     var label = btn.textContent;
+    // Until the email list is connected nothing is sent, so don't mark the visitor as asked.
+    var action = form.getAttribute('action');
+    var live = action && action.charAt(0) !== '#';
+    var skipBtn = form.querySelector('.get-skip');
+    if (skipBtn) skipBtn.addEventListener('click', function () {
+      if (live) remember();
+      showStep(panel, 2, true);
+    });
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       var hp = form.querySelector('.hp input');
@@ -31,13 +39,12 @@
       function done() {
         if (finished) return;
         finished = true;
-        remember();
+        if (live) remember();
         btn.disabled = false; btn.textContent = label;
         showStep(panel, 2, true);
       }
-      var action = form.getAttribute('action');
       // A bot, or no list connected yet: show the price without sending the email anywhere.
-      if (skip || !action || action.charAt(0) === '#' || !window.fetch) { done(); return }
+      if (skip || !live || !window.fetch) { done(); return }
       btn.disabled = true; btn.textContent = 'One moment…';
       var body = new FormData();
       body.append(input.name, input.value.trim());
