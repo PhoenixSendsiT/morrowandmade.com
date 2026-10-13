@@ -255,3 +255,6 @@ main{overflow-x:clip}
 .no-js .get-page [data-step="1"]{display:none}
 .no-js .get-page [data-step="2"][hidden]{display:block}
 .band.forest a:focus-visible,.band.forest button:focus-visible{outline-color:var(--ivory)}
+/* dashboard peek right under the hero */
+.peek{padding:8px 0 110px}
+@media (max-width:900px){.peek{padding:8px 0 72px}}
