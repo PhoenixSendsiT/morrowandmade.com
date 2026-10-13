@@ -258,3 +258,10 @@ main{overflow-x:clip}
 /* dashboard peek right under the hero */
 .peek{padding:8px 0 110px}
 @media (max-width:900px){.peek{padding:8px 0 72px}}
+/* optional $10 add-on in the pricing box: switches the buy link to the $44 Payhip bundle */
+.get-addon{display:flex;gap:12px;align-items:flex-start;margin:22px 0 0;padding:14px;border:1px solid var(--linen);border-radius:12px;background:var(--white);cursor:pointer;text-align:left}
+.get-addon input{flex:none;margin-top:3px;width:18px;height:18px;accent-color:var(--forest)}
+.get-addon-text{display:block;font-size:15px}
+.get-addon-text b{font-weight:600;margin-left:6px}
+.get-addon-sub{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px}
+.get-panel .get-addon+.btn,.buy .get-addon+.btn{margin-top:16px}
