@@ -88,7 +88,7 @@ nav.links a:hover{opacity:1}
 .buy .l{padding:44px}
 .buy .r{padding:44px;background:var(--pale)}
 .price{font:64px var(--serif);letter-spacing:-.04em;line-height:1;margin:18px 0 6px}
-.price small{font:15px var(--sans);letter-spacing:0;color:var(--ink-soft);margin-left:6px}
+.price small{font:15px var(--sans);letter-spacing:0;color:var(--ink-soft);margin-left:2px}
 .buy .btn{width:100%;text-align:center;margin-top:26px;padding:17px}
 .buy ul{margin:0;padding:0;list-style:none}
 .buy li{padding:10px 0;border-bottom:1px solid var(--linen);font-size:15.5px}
@@ -258,11 +258,11 @@ main{overflow-x:clip}
 /* dashboard peek right under the hero */
 .peek{padding:8px 0 110px}
 @media (max-width:900px){.peek{padding:8px 0 72px}}
-/* optional add-on tick box in the pricing box (assets/addon.js) */
+/* optional add-on tick box in the pricing box (assets/addon.js, inlined by build.py) */
 .get-addon{display:flex;gap:12px;align-items:flex-start;margin:22px 0 0;padding:14px;border:1px solid var(--linen);border-radius:12px;background:var(--white);cursor:pointer;text-align:left}
 .get-addon[hidden]{display:none}
 .get-addon input{flex:none;margin-top:3px;width:18px;height:18px;accent-color:var(--forest)}
 .get-addon-text{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:15px}
 .get-addon-text b{font-weight:600;white-space:nowrap}
 .get-addon-sub{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px}
-.get-panel .get-addon+.btn,.buy .get-addon+.btn{margin-top:16px}
+.get-panel .get-addon:not([hidden])+.btn,.buy .get-addon:not([hidden])+.btn{margin-top:16px}
