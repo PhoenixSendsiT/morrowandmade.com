@@ -14,6 +14,8 @@
       for (var j = 0; j < prices.length; j++) prices[j].textContent = box.checked ? box.getAttribute('data-price') : basePrice;
     }
     box.addEventListener('change', update);
-    update(); // a box left ticked by the browser after going back
+    window.addEventListener('pageshow', update); // the browser can restore a ticked box after Back, with no change event
+    update();
+    var label = box.closest('.get-addon'); if (label) label.hidden = false; // shown only once the script can switch the link and price
   }
 })();
