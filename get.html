@@ -39,18 +39,43 @@
 <h1 class="sr-only">Get Wedding Planning OS</h1>
 <div class="get-panel">
   <div class="kicker">Wedding Planning OS · One-time purchase</div>
-  <p class="price"><span data-price-value>$34</span><small>USD</small></p>
+  <p class="price" aria-live="polite" aria-atomic="true"><span data-price-value>$34</span><small> USD</small></p>
   <p class="small muted">Plus applicable tax, added at checkout. Instant digital download. No subscription.</p>
   <ul class="get-list">
     <li>Excel and Google Sheets versions</li>
     <li>Blank workbook plus a filled example</li>
     <li>Setup guide (PDF) and email support</li>
   </ul>
+  <label class="get-addon" hidden style="display:none"><input type="checkbox" autocomplete="off" data-addon data-price="$44" data-href="https://payhip.com/b/h1Rg5"> <span><span class="get-addon-text">Add the Seating &amp; Tables Planner <b>+$10</b></span><span class="get-addon-sub">Guest list, tables, meals and printable table cards. Delivered with your workbook.</span></span></label>
   <a class="btn" href="https://payhip.com/b/r2pvW" data-checkout>Continue to secure checkout</a>
   <p class="tiny get-note">Sold by Morrow &amp; Made, Maryland, USA. Secure checkout by Payhip. Card payments processed by Stripe. See our <a href="refund.html">refund policy</a>.</p>
 </div>
 
 <p class="tiny" style="margin-top:22px;text-align:center"><a href="/">Back to Wedding Planning OS</a></p>
+<script>
+/* Optional add-on: ticking the box sends the buy button to the Payhip bundle and shows the bundle price. build.py inlines this file into the pages. */
+(function () {
+  var boxes = document.querySelectorAll('[data-addon]');
+  for (var i = 0; i < boxes.length; i++) wire(boxes[i]);
+  function wire(box) {
+    var scope = box.closest('.buy, .get-panel');
+    if (!scope) return;
+    var checkout = scope.querySelector('[data-checkout]');
+    var prices = scope.querySelectorAll('[data-price-value]');
+    if (!checkout) return;
+    var base = checkout.getAttribute('href'), basePrice = prices.length ? prices[0].textContent : '';
+    function update() {
+      var href = box.checked ? box.getAttribute('data-href') : base, price = box.checked ? box.getAttribute('data-price') : basePrice;
+      if (checkout.getAttribute('href') !== href) checkout.setAttribute('href', href);
+      for (var j = 0; j < prices.length; j++) if (prices[j].textContent !== price) prices[j].textContent = price; // write only on change: the price is a live region
+    }
+    box.addEventListener('change', update);
+    window.addEventListener('pageshow', update); // the browser can restore a ticked box after Back, with no change event
+    update();
+    var label = box.closest('.get-addon'); if (label) { label.hidden = false; label.style.display = ''; } // shown only once the script can switch the link and price
+  }
+})();
+</script>
 </main>
 <footer class="site"><div class="wrap">
   <div class="cols">
