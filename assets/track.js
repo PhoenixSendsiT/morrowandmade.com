@@ -2,7 +2,7 @@
 // Fill the two IDs below; an empty ID turns that tool off.
 (function () {
   var GA_ID = 'G-GS3VZC722P';       // GA4 measurement ID, like G-ABC123XYZ
-  var CLARITY_ID = '';  // Clarity project ID, like abcd1234ef
+  var CLARITY_ID = 'z2y26cuzy2';  // Clarity project ID, like abcd1234ef
 
   // EEA, UK and Switzerland: no analytics cookies (consent mode default denied).
   var EEA = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH'];
