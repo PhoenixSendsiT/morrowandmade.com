@@ -1,7 +1,7 @@
 // Analytics for morrowandmade.com: GA4 + Microsoft Clarity, and click events for the funnel.
 // Fill the two IDs below; an empty ID turns that tool off.
 (function () {
-  var GA_ID = '';       // GA4 measurement ID, like G-ABC123XYZ
+  var GA_ID = 'G-GS3VZC722P';       // GA4 measurement ID, like G-ABC123XYZ
   var CLARITY_ID = '';  // Clarity project ID, like abcd1234ef
 
   // EEA, UK and Switzerland: no analytics cookies (consent mode default denied).
