@@ -61,6 +61,10 @@ nav.links a:hover{opacity:1}
 .num .label{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
 .num .fig{font:44px var(--serif);letter-spacing:-.03em;margin:10px 0 8px}
 .num p{margin:0;font-size:15.5px;color:#46544b}
+.numbers.four{grid-template-columns:repeat(4,1fr)}
+.num.hidden-balance{background:var(--forest,#2f4a3a);color:var(--ivory)}
+.num.hidden-balance .label,.num.hidden-balance p{color:var(--ivory);opacity:.85}
+@media (max-width:1000px){.numbers.four{grid-template-columns:repeat(2,1fr)}}
 
 /* features */
 .split{display:grid;grid-template-columns:1fr 1.25fr;gap:70px;align-items:center}
@@ -266,3 +270,4 @@ main{overflow-x:clip}
 .get-addon-text b{font-weight:600;white-space:nowrap}
 .get-addon-sub{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px}
 .get-panel .get-addon:not([hidden])+.btn,.buy .get-addon:not([hidden])+.btn{margin-top:16px}
+@media (max-width:600px){.numbers.four{grid-template-columns:1fr}}
