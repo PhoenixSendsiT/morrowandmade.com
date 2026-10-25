@@ -271,3 +271,8 @@ main{overflow-x:clip}
 .get-addon-sub{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px}
 .get-panel .get-addon:not([hidden])+.btn,.buy .get-addon:not([hidden])+.btn{margin-top:16px}
 @media (max-width:600px){.numbers.four{grid-template-columns:1fr}}
+.more-options{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:28px auto 0;max-width:980px;text-align:left}
+.opt-card{background:var(--ivory);border-radius:14px;padding:28px}
+.opt-card h3{font:28px var(--serif);margin:0 0 10px}
+.opt-card p{margin:0 0 20px;font-size:15.5px;color:#46544b}
+@media (max-width:800px){.more-options{grid-template-columns:1fr}}
