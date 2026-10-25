@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Wedding Budget Calculator + Hidden Balance Check | Morrow &amp; Made</title>
+<meta name="description" content="Free wedding budget calculator: split your budget by category with 2026 averages, see your cost per guest, then find your Hidden Balance, the money you have signed for but not paid yet.">
+<link rel="canonical" href="https://morrowandmade.com/wedding-budget-calculator.html">
+<meta property="og:title" content="Free wedding budget calculator: how big is your Hidden Balance?">
+<meta property="og:description" content="Split your budget by category, check your cost per guest, and see what you still owe before the final weeks.">
+<meta property="og:image" content="https://morrowandmade.com/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wedding Planning OS by Morrow &amp; Made">
+<meta property="og:site_name" content="Morrow &amp; Made">
+<meta property="og:url" content="https://morrowandmade.com/wedding-budget-calculator.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#F5F2EC">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.calc{max-width:760px;margin:0 auto;text-align:left}
+.calc .card{background:#fff;border:1px solid var(--linen);border-radius:14px;padding:28px;margin-top:28px}
+.calc label{display:block;font-size:14px;letter-spacing:.04em;color:var(--ink-soft,#5b6a60);margin:14px 0 6px}
+.calc input[type=number],.calc input[type=date]{width:100%;box-sizing:border-box;font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--linen);border-radius:10px;background:var(--ivory)}
+.calc .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.calc table{width:100%;border-collapse:collapse;margin-top:18px;font-size:15.5px}
+.calc td,.calc th{padding:8px 6px;border-bottom:1px solid var(--linen);text-align:left}
+.calc td.r,.calc th.r{text-align:right;font-variant-numeric:tabular-nums}
+.calc .note{font-size:14px;color:#5b6a60;margin-top:12px}
+.calc .flag{background:var(--pale);border-radius:10px;padding:12px 14px;margin-top:14px;font-size:15.5px}
+.calc fieldset{border:0;padding:0;margin:16px 0 0}
+.calc legend{font-size:16px;margin-bottom:6px}
+.calc .opt{display:inline-flex;align-items:center;gap:6px;margin-right:18px;font-size:16px}
+.hb{background:var(--forest);color:var(--ivory);border-radius:14px;padding:28px;margin-top:22px;text-align:center}
+.hb .fig{font:52px var(--serif);letter-spacing:-.03em;margin:6px 0}
+.hb p{color:var(--ivory);opacity:.9;margin:6px 0}
+.hb .kicker{color:var(--ivory);opacity:.8}
+@media (max-width:600px){.calc .row2{grid-template-columns:1fr}.calc .card{padding:20px}.hb .fig{font-size:42px}}
+</style>
+<script>document.documentElement.classList.remove('no-js')</script>
+<script src="/assets/track.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/" aria-label="Morrow and Made, home">Morrow <span>&amp;</span> Made</a>
+  <nav class="links" aria-label="Main">
+    <a href="/#inside">Inside</a>
+    <a href="/#how">How it works</a>
+    <a href="/#faq">Questions</a>
+    <a href="/free-guide.html">Free guide</a>
+    <a class="btn sm" href="https://payhip.com/b/r2pvW">Buy · $34</a>
+  </nav>
+</div></header>
+
+<main id="main" class="doc" style="text-align:center">
+<div class="kicker">Free tools</div>
+<h1>Wedding budget calculator</h1>
+<p class="lede" style="margin-top:20px">Split your budget the way the average 2026 wedding does, check what it means per guest, then find your Hidden Balance: the money you've signed for but haven't paid yet.</p>
+
+<div class="calc">
+<section class="card" aria-labelledby="c1">
+<h2 id="c1" style="margin-top:0">1. Split your budget</h2>
+<div class="row2">
+<div><label for="budget">Total budget (USD)</label><input id="budget" type="number" inputmode="numeric" min="0" step="500" value="20000"></div>
+<div><label for="guests">Guests you expect</label><input id="guests" type="number" inputmode="numeric" min="1" step="5" value="100"></div>
+</div>
+<table aria-describedby="srcnote"><thead><tr><th>Category</th><th class="r">Share</th><th class="r">Your amount</th></tr></thead><tbody id="split"></tbody></table>
+<div id="perguest" class="flag"></div>
+<p id="srcnote" class="note">Shares from The Knot 2026 Real Weddings Study (average US wedding $34,200, 117 guests). They are averages, not quotes. We keep 5% back for surprises such as service charges and tips, as The Knot suggests, so the categories share the other 95%. The $80 catering figure is The Knot's average per person. More in our <a href="/blog/wedding-budget-breakdown-by-percentage.html">budget breakdown guide</a>.</p>
+</section>
+
+<section class="card" aria-labelledby="c2">
+<h2 id="c2" style="margin-top:0">2. How big is your Hidden Balance?</h2>
+<p style="margin:0">Add up the contracts you've signed so far and what you've paid on them. If you haven't signed anything yet, use the venue and caterer quotes you're closest to.</p>
+<div class="row2">
+<div><label for="signed">Total of contracts signed (USD)</label><input id="signed" type="number" inputmode="numeric" min="0" step="100" value="15000"></div>
+<div><label for="paid">Paid on them so far (USD)</label><input id="paid" type="number" inputmode="numeric" min="0" step="100" value="4000"></div>
+</div>
+<label for="wdate">Wedding date</label><input id="wdate" type="date">
+<fieldset><legend>Do your quotes include tax, service charges and tips?</legend>
+<label class="opt"><input type="radio" name="q1" value="1"> Yes</label><label class="opt"><input type="radio" name="q1" value="0"> No / not sure</label></fieldset>
+<fieldset><legend>Is it written down who is paying for what (you, family, others)?</legend>
+<label class="opt"><input type="radio" name="q2" value="1"> Yes</label><label class="opt"><input type="radio" name="q2" value="0"> No / not sure</label></fieldset>
+<fieldset><legend>Do you know the due date of every final balance?</legend>
+<label class="opt"><input type="radio" name="q3" value="1"> Yes</label><label class="opt"><input type="radio" name="q3" value="0"> No / not sure</label></fieldset>
+
+<div class="hb" aria-live="polite">
+<div class="kicker">Your Hidden Balance</div>
+<div class="fig" id="hbfig">$11,000</div>
+<p id="hbweeks"></p>
+<p id="hbrisk"></p>
+</div>
+<p class="note">Couples in public wedding forums most often report final balances due two weeks to a month before the wedding. That's anecdotal, not a survey, and your contracts decide. See <a href="/blog/wedding-vendor-payment-schedule.html">when vendor payments are due</a>.</p>
+</section>
+
+<section class="card" aria-labelledby="c3" style="text-align:center">
+<h2 id="c3" style="margin-top:0">Keep the balance in sight</h2>
+<p>Get <em>Just Engaged: Your First 30 Days</em>, our free 8-page guide, plus short planning emails on beating the Hidden Balance.</p>
+<div style="margin-top:18px"><script id="form-script-tag-25860343" src="https://morrowandmade.systeme.io/public/remote/page/45862215f994f8cffc1970c0efcde46c93553ef6.js"></script></div>
+<p class="tiny" style="margin-top:14px">You'll get the guide right away, plus our short planning emails, which can mention our products. Unsubscribe any time. See our <a href="privacy.html">privacy policy</a>.</p>
+<p style="margin-top:22px">Want every payment tracked for you? <a href="/#money">Wedding Planning OS</a> keeps Planned, Signed, Paid and Still Owed apart, in Google Sheets or Excel. $34, paid once.</p>
+</section>
+<p class="tiny" style="margin-top:22px;text-align:center">This calculator runs in your browser. We don't save what you type.</p>
+</div>
+</main>
+<script>
+(function(){
+var CATS=[["Venue and rentals",29],["Catering, cake and drinks",24],["Photo and video",10],["Florals and decor",9],["Music",6],["Attire and beauty",6],["Wedding rings",5],["Wedding planner",5],["Guest entertainment",3],["Transportation",2],["Stationery",1],["Officiant",1]];
+var SUM=CATS.reduce(function(a,c){return a+c[1]},0);
+function $(i){return document.getElementById(i)}
+function n(i){var v=parseFloat($(i).value);return isFinite(v)&&v>0?v:0}
+function usd(v){return '$'+Math.round(v).toLocaleString('en-US')}
+var used={};
+function ev(name){if(used[name])return;used[name]=1;if(window.gtag)gtag('event',name,{page:'calculator'})}
+function split(){
+ var b=n('budget'),g=n('guests'),rows='',usable=b*0.95;
+ CATS.forEach(function(c){rows+='<tr><td>'+c[0]+'</td><td class="r">'+c[1]+'%</td><td class="r">'+usd(usable*c[1]/SUM)+'</td></tr>'});
+ rows+='<tr><td><strong>Kept back for surprises</strong></td><td class="r">5%</td><td class="r"><strong>'+usd(b*0.05)+'</strong></td></tr>';
+ $('split').innerHTML=rows;
+ var cat=usable*24/SUM, pg=g?cat/g:0, tot=g?b/g:0;
+ $('perguest').innerHTML=g&&b?('Your whole budget is <strong>'+usd(tot)+' per guest</strong>. The catering line comes to <strong>'+usd(pg)+' per guest</strong>'+(pg<80?', below The Knot\'s $80 average per person before drinks, cake or service charges. Something has to give: fewer guests, a bigger catering share, or a different style of meal.':', at or above The Knot\'s $80 average per person.')):'Enter a budget and a guest count.';
+}
+function hidden(){
+ var s=n('signed'),p=n('paid'),bal=Math.max(s-p,0);
+ $('hbfig').textContent=usd(bal);
+ var d=$('wdate').value,txt='Add your wedding date to see what that means per week.';
+ if(d){var days=Math.round((new Date(d+'T12:00:00')-new Date())/864e5);
+  if(days>14){var wk=Math.max(1,Math.floor((days-14)/7));txt='About '+usd(bal/wk)+' a week if you set it aside from now until two weeks before the wedding ('+wk+' week'+(wk>1?'s':'')+').'}
+  else if(days>=0){txt='Your wedding is close: most of this is likely due now.'}
+  else{txt='That date has passed. Check the date.'}}
+ $('hbweeks').textContent=bal?txt:'Nothing signed and unpaid yet. Every contract you sign adds to it.';
+ var miss=0,ans=0;['q1','q2','q3'].forEach(function(q){var c=document.querySelector('input[name='+q+']:checked');if(c){ans++;if(c.value==='0')miss++}});
+ var r='';
+ if(ans===3){r=miss===0?'You can see the whole balance. Keep it that way: one row per payment, with its due date.':miss===1?'One blind spot: the balance could be bigger than it looks.':'Several blind spots: the real balance is likely bigger than this number.';ev('quiz_complete')}
+ $('hbrisk').textContent=r;
+}
+['budget','guests'].forEach(function(i){$(i).addEventListener('input',function(){split();ev('calc_used')})});
+['signed','paid','wdate'].forEach(function(i){$(i).addEventListener('input',function(){hidden();ev('hb_used')})});
+document.querySelectorAll('.calc input[type=radio]').forEach(function(r){r.addEventListener('change',hidden)});
+split();hidden();
+})();
+</script>
+<footer class="site"><div class="wrap">
+  <div class="cols">
+    <div><a class="brand" href="/">Morrow <span>&amp;</span> Made</a><p class="muted" style="margin-top:10px">Questions: <a href="mailto:hello@morrowandmade.com">hello@morrowandmade.com</a></p></div>
+    <nav aria-label="Policies"><a href="refund.html">Refunds</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mailto:hello@morrowandmade.com">Contact</a></nav>
+  </div>
+  <p class="tiny" style="margin-top:30px">© 2026 Morrow &amp; Made · Operated by an individual seller in Maryland, USA. Wedding Planning OS is a digital download. Microsoft Excel and Google Sheets are trademarks of their respective owners; this product isn't affiliated with or endorsed by them.</p>
+</div></footer>
+
+<script>
+(function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})})();
+</script>
+</body>
+</html>
