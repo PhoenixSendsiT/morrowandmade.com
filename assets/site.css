@@ -46,12 +46,8 @@ nav.links a:hover{opacity:1}
   /* with JavaScript: a Menu button opens the full list */
   header.site.has-menu .wrap{gap:10px}
   header.site.has-menu .brand{font-size:23px;white-space:nowrap}
-  /* closed: logo and Menu on top, the workbook button full width under them */
-  html{scroll-padding-top:128px}
-  header.site.has-menu:not(.open) .wrap{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;row-gap:10px}
-  header.site.has-menu:not(.open) nav.links{order:2;flex-basis:100%;margin:0}
-  header.site.has-menu:not(.open) nav.links .btn{flex:1;text-align:center;padding:10px 16px;font-size:14.5px}
-  .has-menu .menu-btn{order:1;margin-left:auto}
+  /* closed (tablets): logo, the workbook button, Menu */
+  header.site.has-menu:not(.open) nav.links .btn{font-size:13.5px;padding:8px 14px}
   header.site.has-menu nav.links{margin-left:auto}
   header.site.has-menu nav.links a:not(.btn){display:none}
   .has-menu .menu-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--linen);border-radius:999px;color:var(--forest);font:600 14px var(--sans);padding:8px 14px;cursor:pointer}
@@ -65,7 +61,8 @@ nav.links a:hover{opacity:1}
   header.site.open nav.links a:not(.btn){display:block;padding:15px 2px;font-size:17px;border-bottom:1px solid var(--linen);opacity:1}
   header.site.open nav.links .btn{order:1;margin-top:18px;text-align:center}
 }
-@media (max-width:360px){header.site.has-menu:not(.open) nav.links .btn{font-size:13.5px;padding:10px 12px}}
+/* phones: the header is just the logo and Menu; the workbook button waits inside the open menu */
+@media (max-width:600px){header.site.has-menu:not(.open) nav.links .btn,header.site:not(.has-menu) nav.links .btn{display:none}}
 
 /* hero */
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
