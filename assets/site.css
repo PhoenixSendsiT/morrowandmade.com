@@ -38,7 +38,33 @@ nav.links a:hover{opacity:1}
 .btn.sm{padding:9px 18px;font-size:14px}
 .btn.ghost{background:transparent;color:var(--forest)!important;border:1px solid var(--forest)}
 .btn.ghost:hover{background:var(--pale)}
-@media (max-width:760px){nav.links a:not(.btn){display:none}}
+.menu-btn{display:none}
+@media (max-width:820px){
+  /* no JavaScript: every link stays reachable in a scrollable row under the logo */
+  header.site:not(.has-menu) .wrap{flex-wrap:wrap;height:auto;min-height:68px;padding-top:10px;padding-bottom:8px;row-gap:6px}
+  header.site:not(.has-menu) nav.links{flex-basis:100%;gap:20px;overflow-x:auto;white-space:nowrap;padding-bottom:4px}
+  /* with JavaScript: logo, Buy, and a Menu button that opens the full list */
+  header.site.has-menu .wrap{gap:10px}
+  header.site.has-menu .brand{font-size:23px;white-space:nowrap}
+  header.site.has-menu nav.links .btn{white-space:nowrap;padding:8px 14px;font-size:13.5px}
+  header.site.has-menu nav.links{margin-left:auto}
+  header.site.has-menu nav.links a:not(.btn){display:none}
+  .has-menu .menu-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--linen);border-radius:999px;color:var(--forest);font:600 14px var(--sans);padding:8px 14px;cursor:pointer}
+  .menu-icon,.menu-icon::before,.menu-icon::after{display:block;width:16px;height:1.5px;background:var(--forest);border-radius:2px;position:relative;transition:transform .2s,background .2s}
+  .menu-icon::before,.menu-icon::after{content:"";position:absolute;left:0}
+  .menu-icon::before{top:-5px}.menu-icon::after{top:5px}
+  header.site.open .menu-icon{background:transparent}
+  header.site.open .menu-icon::before{top:0;transform:rotate(45deg)}
+  header.site.open .menu-icon::after{top:0;transform:rotate(-45deg)}
+  header.site.open nav.links{position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ivory);border-bottom:1px solid var(--linen);box-shadow:0 18px 30px rgba(46,58,51,.12);padding:6px 24px 22px;max-height:calc(100vh - 68px);overflow-y:auto}
+  header.site.open nav.links a:not(.btn){display:block;padding:15px 2px;font-size:17px;border-bottom:1px solid var(--linen);opacity:1}
+  header.site.open nav.links .btn{order:1;margin-top:18px;text-align:center}
+}
+@media (max-width:389px){
+  header.site.has-menu .wrap{padding:0 16px}
+  .has-menu .menu-btn{padding:9px 11px}
+  .has-menu .menu-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
 
 /* hero */
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
