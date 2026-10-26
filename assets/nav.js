@@ -23,5 +23,5 @@
   document.addEventListener('click', function (e) {
     if (header.classList.contains('open') && !header.contains(e.target)) set(false);
   });
-  window.addEventListener('resize', function () { if (window.innerWidth > 820) set(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 980) set(false); });
 })();
